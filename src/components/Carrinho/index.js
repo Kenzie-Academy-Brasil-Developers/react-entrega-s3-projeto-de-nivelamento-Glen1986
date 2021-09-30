@@ -18,11 +18,12 @@ const Carrinho = ({addCarro, }) => {
             <td className="description">descri&ccedil;ao: {item.description} </td>
             <td className="price">preco: {item.price}, </td>
             <td className="discount" > disconto: {item.discount}, </td>
+
           </tr>)}
       </div>
       <div>Valor: {Math.floor(valores)}</div>
-      <div>Desconto: {Math.floor(desconto)}</div>
-      <div>Total: {Math.floor(total())}</div>
+      <div>Desconto: {desconto}</div>
+      <div>Total: {total().toFixed((2))}</div>
     </Container>
   )
 }
