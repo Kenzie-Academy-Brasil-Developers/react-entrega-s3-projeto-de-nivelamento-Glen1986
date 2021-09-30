@@ -11,7 +11,7 @@ const Display = ({products, title, onClick, children}) => {
               <td className="code">code: {item.code} </td>
               <td className="quant">nome: {item.name} </td>
               <td className="description">descri&ccedil;&atilde;o: {item.description} </td>
-              <td className="price">preco: {item.price}, </td>
+              <td className="price">preco: {item.price} </td>
               <td className="discount" > disconto: {item.discount} </td>
               <td ><button onClick={() => onClick(item)}>{children}</button> </td>
             </tr>)}
