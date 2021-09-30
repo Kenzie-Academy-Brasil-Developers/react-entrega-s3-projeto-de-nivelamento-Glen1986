@@ -13,12 +13,12 @@ const Carrinho = ({addCarro}) => {
             <span>Carrinho</span>
             {addCarro.map((item, index) =>
                <tr key={index}>
-                  <td className="code">code: {item.code}, </td>
-                  <td className="quant">nome: {item.name}, </td>
+                  <td className="code">code: {item.code} </td>
+                  <td className="quant">nome: {item.name} </td>
                   <td className="description">descri&ccedil;&atilde;o: {item.description} </td>
                   <td className="description">descri&ccedil;ao: {item.description} </td>
-                  <td className="price">preco: {item.price}, </td>
-                  <td className="discount" > disconto: {item.discount}, </td>
+                  <td className="price">preco: {item.price} </td>
+                  <td className="discount" > disconto: {item.discount} </td>
                </tr>)}
          </div>
          <div>Valor: {Math.floor(valores)}</div>
