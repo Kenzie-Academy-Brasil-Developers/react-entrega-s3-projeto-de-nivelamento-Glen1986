@@ -1,19 +1,21 @@
 import {Container} from './styles';
-const Display = ({products, title}) => {
+const Display = ({products, title, onClick, children}) => {
+
   return (
     <Container>
       <div className="products">
         <span>{title}</span>
         <table>
-          <tr>{products.map(item => <td className="code">code: {item.code}, </td>)} </tr>
-          <tr>{products.map(item => <td className="quant">nome: {item.name}, </td>)} </tr>
-          <tr>{products.map(item => <td className="description">descriçao: {item.description} </td>)} </tr>
-          <tr>{products.map(item => <td className="price">preco: {item.price}, </td>)} </tr>
-          <tr>{products.map(item => <td className="discount" > disconto: {item.discount}, </td>)} </tr>
-          <tr>{products.map(item => <td ><button
-            type="submit"
-          >click</button> </td>)} </tr>
-        </table>
+          {products.map((item, index)=> 
+          <tr key={index}>
+           <td className="code">code: {item.code}, </td>
+           <td className="quant">nome: {item.name}, </td>
+           <td className="description">descri√ßao: {item.description} </td>
+           <td className="price">preco: {item.price}, </td>
+           <td className="discount" > disconto: {item.discount}, </td>
+           <td ><button onClick={()=>onClick(item)}>{children}</button> </td>
+          </tr> )} 
+       </table>
       </div >
 
     </Container >
