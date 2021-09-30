@@ -31,28 +31,37 @@ function App() {
       discount: 110.19,
     },
   ]);
+  const [addCarro, setAddCarro] = useState([]);
 
-  //const [total, setTotal] = useState();
-  //const [oferta, setOferta] = useState();
-  //const newItem = () => {
-  /*    setProducts(
-        [...products, "newProduct"]
-      )
-    }*/
+  const addToCarr = (obj) => {
+
+    setAddCarro([...addCarro, obj])
+    console.log(addCarro)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
+        <h1>KenzieOfertas</h1>
         <Form
           products={products}
           setProducts={setProducts}
-          title={"form"}
+          title={"add"}
         ></Form>
 
-        <Carrinho>
+        <Carrinho
+          addCarro={addCarro}
+          children={"Buy"}
+          title={"carrinho"}
+        >
 
         </Carrinho>
         <Display
-          title={"Products"}
+          addCarro={addCarro}
+          setAddCarro={setAddCarro}
+          children={"add"}
+          onClick={addToCarr}
+          title={"products"}
           products={products}
           setProducts={setProducts}
         />
