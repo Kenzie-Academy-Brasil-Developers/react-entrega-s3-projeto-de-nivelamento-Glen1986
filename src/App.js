@@ -36,13 +36,14 @@ function App() {
   const addToCarr = (obj) => {
     const found = carro.find(item => item.code === obj.code)
     console.log(found)
-
-
     if (!found) {
-
       setCarro([...carro, obj])
-      console.log(carro)
     }
+  }
+
+  const takeOff = (obj) => {
+    const filtrados = carro.filter(item => item.name !== obj)
+    setCarro([carro, ...filtrados])
   }
 
   return (
@@ -57,8 +58,10 @@ function App() {
 
         <Carrinho
           carro={carro}
-          children={"Buy"}
+          setCarro={setCarro}
+          children={"Tira"}
           title={"carrinho"}
+          takeOff={takeOff}
         >
 
         </Carrinho>

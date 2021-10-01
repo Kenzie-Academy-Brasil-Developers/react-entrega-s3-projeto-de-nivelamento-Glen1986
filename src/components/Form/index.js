@@ -13,11 +13,9 @@ const Form = ({title, products, setProducts}) => {
     setProducts(
       [...products, newProduct]
     )
-    console.log(newProduct)
   }
   return (
     <div className="form">
-      {console.log(newProduct)}
       <form onSubmit={onSubmitFunction}>
         <input type="text"
           value={newProduct.code}
