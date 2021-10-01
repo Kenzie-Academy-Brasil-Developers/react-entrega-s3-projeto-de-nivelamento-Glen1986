@@ -1,35 +1,53 @@
-import {useForm} from 'react-hook-form';
+import {useState} from "react"
 const Form = ({title, products, setProducts}) => {
-  const {
-    register,
-    handleSubmit,
-  } = useForm();
+  const [newProduct, setNewProduct] = useState({
+    code: "",
+    name: "",
+    description: "",
+    price: "",
+    discount: "",
+  })
 
-  const onSubmitFunction = (data) => {
+  const onSubmitFunction = (e) => {
+    e.preventDefault();
     setProducts(
-      [...products, data]
+      [...products, newProduct]
     )
-    console.log(data)
+    console.log(newProduct)
   }
   return (
     <div className="form">
-      <form onSubmit={handleSubmit(onSubmitFunction)}>
+      {console.log(newProduct)}
+      <form onSubmit={onSubmitFunction}>
         <input type="text"
+          value={newProduct.code}
           placeholder={"code"}
-          {...register("code")}
+          onChange={(e) => setNewProduct({
+            ...newProduct, code: e.target.value
+          })}
         ></input>
-        <input placeholder={"name"}
-          {...register("name")}
+        <input type="text"
+          value={newProduct.name}
+          placeholder={"name"}
+          onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}
         ></input>
-        <input placeholder={"descricao"}
-          {...register("description")}
+        <input type="text"
+          value={newProduct.description}
+          placeholder={"descricao"}
+          onChange={(e) => setNewProduct({...newProduct, description: e.target.value})}
         ></input>
-        <input placeholder={"preco"}
-          {...register("price")}
+        <input type="text"
+          value={newProduct.price}
+          placeholder={"preco"}
+          onChange={(e) => setNewProduct({...newProduct, price: e.target.value})}
         ></input>
-        <input placeholder={"desconto"}
-          {...register("discount")}
+
+        <input type="text"
+          value={newProduct.discount}
+          placeholder={"desconto"}
+          onChange={(e) => setNewProduct({...newProduct, discount: e.target.value})}
         ></input>
+
         <button
           type={"submit"}
         >{title}</button>
