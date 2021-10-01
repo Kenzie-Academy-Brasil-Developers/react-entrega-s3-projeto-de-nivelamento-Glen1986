@@ -1,8 +1,8 @@
 import {Container} from './styles'
-const Carrinho = ({addCarro}) => {
+const Carrinho = ({carro}) => {
 
-   const valores = addCarro.map(item => item.price).reduce((a, b) => {return a + b}, 0)
-   const desconto = addCarro.map(item => item.discount).reduce((a, b) => {return a + b}, 0)
+   const valores = carro.map(item => item.price).reduce((a, b) => {return a + b}, 0)
+   const desconto = carro.map(item => item.discount).reduce((a, b) => {return a + b}, 0)
    const total = () => {
       return valores - desconto
    };
@@ -11,7 +11,7 @@ const Carrinho = ({addCarro}) => {
       <Container>
          <div className="carrinho">
             <span>Carrinho</span>
-            {addCarro.map((item, index) =>
+            {carro.map((item, index) =>
                <tr key={index}>
                   <td className="code">code: {item.code} </td>
                   <td className="quant">nome: {item.name} </td>

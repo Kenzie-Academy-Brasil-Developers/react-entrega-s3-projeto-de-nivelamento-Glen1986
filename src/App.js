@@ -31,12 +31,18 @@ function App() {
       discount: 110.19,
     },
   ]);
-  const [addCarro, setAddCarro] = useState([]);
+  const [carro, setCarro] = useState([]);
 
   const addToCarr = (obj) => {
+    const found = carro.find(item => item.code === obj.code)
+    console.log(found)
 
-    setAddCarro([...addCarro, obj])
-    console.log(addCarro)
+
+    if (!found) {
+
+      setCarro([...carro, obj])
+      console.log(carro)
+    }
   }
 
   return (
@@ -50,17 +56,15 @@ function App() {
         ></Form>
 
         <Carrinho
-          addCarro={addCarro}
+          carro={carro}
           children={"Buy"}
           title={"carrinho"}
         >
 
         </Carrinho>
         <Display
-          addCarro={addCarro}
-          setAddCarro={setAddCarro}
           children={"add"}
-          onClick={addToCarr}
+          addToCarr={addToCarr}
           title={"products"}
           products={products}
           setProducts={setProducts}

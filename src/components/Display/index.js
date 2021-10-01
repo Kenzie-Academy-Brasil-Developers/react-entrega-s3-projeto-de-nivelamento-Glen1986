@@ -1,5 +1,5 @@
 import {Container} from './styles';
-const Display = ({products, title, onClick, children}) => {
+const Display = ({products, title, addToCarr, children}) => {
 
   return (
     <Container>
@@ -13,7 +13,7 @@ const Display = ({products, title, onClick, children}) => {
               <td className="description">descri&ccedil;&atilde;o: {item.description} </td>
               <td className="price">preco: {item.price} </td>
               <td className="discount" > disconto: {item.discount} </td>
-              <td ><button onClick={() => onClick(item)}>{children}</button> </td>
+              <td ><button onClick={() => addToCarr(item)}>{children}</button> </td>
             </tr>)}
         </table>
       </div >
