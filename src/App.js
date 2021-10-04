@@ -43,7 +43,7 @@ function App() {
 
   const takeOff = (obj) => {
     const filtrados = carro.filter(item => item.name !== obj)
-    setCarro([carro, ...filtrados])
+    setCarro(filtrados)
   }
 
   return (
